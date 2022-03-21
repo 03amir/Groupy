@@ -1,0 +1,107 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+button,input{
+  padding: 10px 20px;
+  outline: none;
+  
+}
+
+.card{
+  max-height: 55vh;
+  width: 30vw;
+  border: 1px solid white;
+  margin: 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  text-align: left;
+  padding: 20px;
+  margin-bottom: 40px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.modal{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform:translate(-50%, -50%);
+    background-color:#282c34;
+    height:30vh;
+    width:30vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+     justify-content: center;
+     border-radius: 5px;
+}
+
+
+@media screen and (max-width: 392px) {
+  .modal{
+    border: 1px solid rgb(204, 204, 204);
+    background: rgb(40, 44, 52);
+    overflow: auto;
+    border-radius: 5px;
+    outline: none;
+    padding: 20px;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    height: 5vh;
+    /* width: 4vw; */
+    /* width: 31vw; */
+    
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 27vh;
+    width: 74vw;
+    height: 19vh;
+    width: 75vw;
+  }
+
+  .card{
+    width: 63vw;
+  }
+
+  
+  
+  
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
