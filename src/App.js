@@ -3,7 +3,7 @@ import React,{useEffect,useState}  from 'react';
 import io from 'socket.io-client';
 import './App.css';
 
-const socket = io.connect("https://grouppy.herokuapp.com/")
+const socket = io.connect("https://groupyy.herokuapp.com/")
 Modal.setAppElement('#root');
 const customStyles = {
   content: {
