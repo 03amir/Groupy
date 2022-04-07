@@ -3,7 +3,7 @@ import React,{useEffect,useState}  from 'react';
 import io from 'socket.io-client';
 import './App.css';
 
-const socket = io.connect("https://groupyy.herokuapp.com/")
+const socket = io.connect("https://grouppy.herokuapp.com/")
 Modal.setAppElement('#root');
 const customStyles = {
   content: {
@@ -15,6 +15,7 @@ const customStyles = {
 function App() {
   const [msg, setMsg] = useState("")
   const [chat, setChat] = useState([])
+  const [member, setMember] = useState({})
   const [isopen, setIsopen] = useState(true)
   const [name, setName] = useState("")
 
@@ -28,11 +29,29 @@ function App() {
 
   }
 
+  function sendGroup(){
+   
+    socket.emit("sendmember",name)
+  
+
+  }
+
   //catching the server response related to send the msg
 
   useEffect(() => {
     socket.on("chat",payload=>{
       setChat([...chat, payload])
+    })
+  })
+
+  
+
+  useEffect(() => {
+    socket.on("member",payload=>{
+      console.log(payload)
+      
+      setMember(payload)
+      
     })
   })
 
@@ -77,6 +96,7 @@ function App() {
    <button onClick={()=>{
      setIsopen(false)
      setUser() 
+     sendGroup()
      
 
    }}>Save</button>
@@ -93,8 +113,9 @@ function App() {
        <h2>Groupy</h2>
 
        <div className="card">
-
+      
          
+
        {
          chat.map((item,index)=>{
            return(
